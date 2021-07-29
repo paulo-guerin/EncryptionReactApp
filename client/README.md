@@ -1,3 +1,17 @@
+Dans notre dossier parent
+- npx create-react-app client
+
+- cd client
+- npm start
+
+Ajouter Tailwind
+- installation create react app à suivre
+
+Récup Projet
+- npm install
+- npm install @craco/craco ( au cas où craco n'est pas reconnu en commande interne)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
