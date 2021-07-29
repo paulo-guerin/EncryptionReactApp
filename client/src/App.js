@@ -1,11 +1,31 @@
 import './App.css'
 import React, { useState, useEffect } from 'react';
+var CryptoJS = require("crypto-js");
 
 export default function App() {
 
   const [key, setKey] = useState("");
   const [message, setMessage] = useState("");
+  const [result, setResult] = useState("");
+  const [hash, setHash] = useState("MD5");
 
+  function handleSubmitEncrypt() {
+    switch (hash) {
+      case 'MD5':
+        setResult(CryptoJS.HmacMD5(message, key).toString());
+        break;
+      case 'AES':
+        setResult(CryptoJS.AES.encrypt(message, key).toString());
+        break;
+      case "SHA256":
+        setResult(CryptoJS.HmacSHA256(message, key).toString());
+        break;
+      default:
+        break;
+    }
+    // var decrypted = CryptoJS.SHA256.decrypt(encrypted, "Secret Passphrase");
+  }
+  console.log(result);
   return (
     <div className="w-full h-screen flex justify-center flex-col">
       
@@ -22,6 +42,14 @@ export default function App() {
             </label>
             <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="key" type="text" placeholder="Clé de cryptage" value={key} onChange={e => setKey(e.target.value)}/>
           </div>
+          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="hash">
+            Type de cryptage
+          </label>
+          <select name="hash" id="hash" onChange={e => setHash(e.target.value)}>
+              <option value="MD5">MD5</option>
+              <option value="SHA256">SHA256</option>
+              <option value="AES">AES</option>
+          </select>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
               Message
@@ -30,7 +58,7 @@ export default function App() {
           </div>
           
           <div className="flex items-center content-center">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={(e) => setKey(console.log(e))}>
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={(e) => handleSubmitEncrypt()}>
               Crypter le message
             </button>
           </div>
