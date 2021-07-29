@@ -25,7 +25,6 @@ export default function App() {
     }
     // var decrypted = CryptoJS.SHA256.decrypt(encrypted, "Secret Passphrase");
   }
-  console.log(result);
   return (
     <div className="w-full h-screen flex justify-center flex-col">
       
@@ -64,8 +63,7 @@ export default function App() {
           </div>
         </form>
         <div className="colorApp w-10/12 text-gray-700 text-sm h-max flex flex-col font-bold content-around shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-20 mr-20">
-          <div className="text-gray-700 text-sm font-bold">Clé cryptée:</div>
-          <div className="text-gray-700 text-sm font-bold">Message cryptée:</div>
+          <div className="text-gray-700 text-sm font-bold">Message crypté: {result}</div>
         </div>
       </div>
       <p className="text-center text-gray-500 text-xs">
