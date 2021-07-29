@@ -9,6 +9,15 @@ export default function App() {
   const [result, setResult] = useState("");
   const [hash, setHash] = useState("MD5");
 
+  const inputHandler = event => {
+    setResult(event.target.value);
+  }
+
+  const copy = async () => {
+    await navigator.clipboard.writeText(result);
+    alert('Text copied');
+  }
+
   function handleSubmitEncrypt() {
     switch (hash) {
       case 'MD5':
@@ -28,7 +37,7 @@ export default function App() {
   return (
     <div className="w-full h-screen flex justify-center flex-col">
       
-      <div className="text-4xl text-blue-500 self-center mb-20">
+      <div className="text-4xl text-blue-500 self-center mb-2">
         <img className="bg-auto bg-no-repeat bg-center h-48" src={'./images/logo.png'} alt='Entreprise Logo'/>
         <div className="text-lg text-black mb-4">Application de cryptage</div>
       </div>
@@ -63,7 +72,13 @@ export default function App() {
           </div>
         </form>
         <div className="colorApp w-10/12 text-gray-700 text-sm h-max flex flex-col font-bold content-around shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-20 mr-20">
-          <div className="text-gray-700 text-sm font-bold">Message crypté: {result}</div>
+          <div className="text-gray-700 text-sm font-bold">Message crypté:</div>
+          <input className="shadow mb-20 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value={result} onChange={inputHandler} />
+          <button onClick={copy} disabled={!result} className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" 
+          // onClick={(e) => handleSubmitEncrypt()}
+          >
+            Copier le message
+          </button>
         </div>
       </div>
       <p className="text-center text-gray-500 text-xs">
