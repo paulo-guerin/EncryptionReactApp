@@ -1,5 +1,5 @@
 import './App.css'
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 var CryptoJS = require("crypto-js");
 
 export default function App() {
