@@ -55,9 +55,8 @@ export default function App() {
   return (
     <div className="w-full h-screen flex justify-center flex-col space-y-10">
       
-      <div className="text-4xl border-4 border-light-blue-500 text-blue-500 flex flex-row justify-center content-around w-full mb-2">
-        <img className="bg-auto bg-no-repeat bg-center h-28" src={'./images/logo.png'} alt='Entreprise Logo'/>
-        <div className="self-center text-black mb-4 ml-20">Application de cryptage</div>
+      <div className="text-4xl text-blue-500 flex flex-row justify-center content-around w-full mb-2">
+        <div className="self-center text-black mb-4">Application de cryptage</div>
       </div>
 
       <div className="bg-gray-100 shadow-md rounded px-8 pt-6 pb-8 self-center w-full flex flex-row content-around">
@@ -110,6 +109,7 @@ export default function App() {
           </button>
         </div>
       </div>
+      <img className="bg-auto bg-no-repeat bg-center self-center h-20 w-20" src={'./images/logo.png'} alt='Entreprise Logo'/>
       <p className="colorApp text-center text-gray-500 text-xs">
         &copy;2021 Logo. All rights reserved.
       </p>
