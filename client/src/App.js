@@ -18,22 +18,41 @@ export default function App() {
     alert('Text copied');
   }
 
-  function handleSubmitEncrypt() {
+  const handleSubmitEncrypt = () => {
     switch (hash) {
-      case 'MD5':
-        setResult(CryptoJS.HmacMD5(message, key).toString());
+      case 'DES':
+        setResult(CryptoJS.DES.encrypt(message, key).toString());
         break;
       case 'AES':
-        setResult(CryptoJS.AES.encrypt(message, key).toString());
+        setResult(CryptoJS.AES.encrypt(message, key));
         break;
-      case "SHA256":
-        setResult(CryptoJS.HmacSHA256(message, key).toString());
+      case "TripleDES":
+        setResult(CryptoJS.TripleDES.encrypt(message, key).toString());
         break;
       default:
         break;
     }
     // var decrypted = CryptoJS.SHA256.decrypt(encrypted, "Secret Passphrase");
   }
+
+  const handleSubmitDecrypt = () => {
+    switch (hash) {
+      case 'DES':
+        setResult((CryptoJS.DES.decrypt(message, key).toString(CryptoJS.enc.Utf8)));
+        break;
+      case 'AES':
+        setResult((CryptoJS.AES.decrypt(message, key).toString(CryptoJS.enc.Utf8)));
+        break;
+      case "TripleDES":
+        setResult((CryptoJS.TripleDES.decrypt(message, key).toString(CryptoJS.enc.Utf8)));
+        break;
+      default:
+        break;
+    }
+    // var decrypted = CryptoJS.SHA256.decrypt(encrypted, "Secret Passphrase");
+  }
+
+
   return (
     <div className="w-full h-screen flex justify-center flex-col">
       
@@ -54,9 +73,9 @@ export default function App() {
             Type de cryptage
           </label>
           <select name="hash" id="hash" onChange={e => setHash(e.target.value)}>
-              <option value="MD5">MD5</option>
-              <option value="SHA256">SHA256</option>
               <option value="AES">AES</option>
+              <option value="DES">DES</option>
+              <option value="TripleDES">TripleDES</option>
           </select>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="message">
@@ -68,6 +87,9 @@ export default function App() {
           <div className="flex items-center content-center">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={(e) => handleSubmitEncrypt()}>
               Crypter le message
+            </button>
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={(e) => handleSubmitDecrypt()}>
+              Décrypter le message
             </button>
           </div>
         </form>
