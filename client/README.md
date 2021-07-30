@@ -11,6 +11,8 @@ Récup Projet
 - npm install
 - npm install @craco/craco ( au cas où craco n'est pas reconnu en commande interne)
 
+Hébergement Netlify
+https://applicationdecryptage2itech.netlify.app/
 
 # Getting Started with Create React App
 
