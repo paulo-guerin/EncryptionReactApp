@@ -16,7 +16,7 @@ export default function App() {
 
   const copy = async () => {
     await navigator.clipboard.writeText(result);
-    alert('Text copied');
+    alert('Message copié!');
   }
 
   const handleSubmitEncrypt = () => {
