@@ -62,7 +62,7 @@ export default function App() {
       </div>
 
       <div className="bg-gray-200 shadow-md rounded px-8 pt-6 pb-8 mb-4 self-center w-full flex flex-row content-around">
-        <form className="colorApp shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-20 mr-20 w-10/12">
+        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-20 mr-20 w-10/12">
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="key">
               Clé de cryptage
@@ -93,7 +93,7 @@ export default function App() {
             </button>
           </div>
         </form>
-        <div className="colorApp w-10/12 text-gray-700 text-sm h-max flex flex-col font-bold content-around shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-20 mr-20">
+        <div className="bg-white w-10/12 text-gray-700 text-sm h-max flex flex-col font-bold content-around shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-20 mr-20">
           <div className="text-gray-700 text-sm font-bold">Message crypté:</div>
           <input className="shadow mb-20 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value={result} onChange={inputHandler} />
           <button onClick={copy} disabled={!result} className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" 
@@ -103,7 +103,7 @@ export default function App() {
           </button>
         </div>
       </div>
-      <p className="text-center text-gray-500 text-xs">
+      <p className="colorApp text-center text-gray-500 text-xs">
         &copy;2021 Logo. All rights reserved.
       </p>
     </div>
