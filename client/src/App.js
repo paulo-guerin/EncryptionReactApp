@@ -7,7 +7,7 @@ export default function App() {
   const [key, setKey] = useState("");
   const [message, setMessage] = useState("");
   const [result, setResult] = useState("");
-  const [hash, setHash] = useState("MD5");
+  const [hash, setHash] = useState("AES");
 
   const inputHandler = event => {
     setResult(event.target.value);
@@ -24,7 +24,7 @@ export default function App() {
         setResult(CryptoJS.DES.encrypt(message, key).toString());
         break;
       case 'AES':
-        setResult(CryptoJS.AES.encrypt(message, key));
+        setResult(CryptoJS.AES.encrypt(message, key).toString());
         break;
       case "TripleDES":
         setResult(CryptoJS.TripleDES.encrypt(message, key).toString());
