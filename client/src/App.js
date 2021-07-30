@@ -95,7 +95,7 @@ export default function App() {
           </div>
         </form>
         <div className="bg-white w-10/12 text-gray-700 text-sm h-max flex flex-col font-bold content-around shadow-md rounded px-8 pt-6 pb-8 mb-4 ml-20 mr-20">
-          <div className="text-gray-700 text-sm font-bold">Message crypté:</div>
+          <div className="text-gray-700 text-sm font-bold">Message crypté/décrypté:</div>
           <input className="shadow mb-2 appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" value={result} onChange={inputHandler} />
           <button onClick={copy} disabled={!result} className="mb-10 bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button">
             Copier le message
